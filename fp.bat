@@ -1,0 +1,1 @@
+cmd /k "pushd \\Mac\Home\Desktop\Bishop & python fp.py"

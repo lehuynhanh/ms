@@ -177,7 +177,26 @@ def init_sell():
             except:
                 brokenhorn = False
                 pass
-            while oldneckbone or brokenhorn:
+            try:
+                stim = pyag.locateCenterOnScreen('stim.jpg',confidence=0.90)
+            except:
+                pass
+            try:
+                aqua_ore = pyag.locateCenterOnScreen('aqua_ore.jpg',confidence=0.90)
+            except: 
+                pass
+            try:
+                top_ore = pyag.locateCenterOnScreen('top_ore.jpg',confidence=0.90)
+            except:
+                pass
+            try:
+                amy_ore = pyag.locateCenterOnScreen('amy_ore.jpg',confidence=0.90)
+            except: 
+                pass
+            # while oldneckbone or brokenhorn:
+            sell_etc_counter = 0 
+            while brokenhorn or stim or aqua_ore or top_ore or amy_ore or oldneckbone or sell_etc_counter < 20:
+                sell_etc_counter += 1
                 try:
                     oldneckbone = pyag.locateCenterOnScreen('oldneckbone.jpg',confidence=0.90)
                     pyag.doubleClick(oldneckbone)
@@ -206,15 +225,18 @@ def init_sell():
                     pyag.moveTo(100,100)
                     time.sleep(1)
                 except: 
+                    aqua_ore = False
                     pass
                 try:
                     top_ore = pyag.locateCenterOnScreen('top_ore.jpg',confidence=0.90)
                     pyag.doubleClick(top_ore)
                     time.sleep(0.2)
+                    pyag.doubleClick(top_ore)
                     press('ENTER')
                     pyag.moveTo(100,100)
                     time.sleep(1)
                 except:
+                    top_ore = False
                     pass
                 try:
                     amy_ore = pyag.locateCenterOnScreen('amy_ore.jpg',confidence=0.90)
@@ -224,6 +246,7 @@ def init_sell():
                     pyag.moveTo(100,100)
                     time.sleep(1)
                 except: 
+                    amy_ore = False
                     pass
                 try:
                     dragonspirit = pyag.locateCenterOnScreen('dragonspirit.jpg',confidence=0.90)
@@ -233,6 +256,7 @@ def init_sell():
                     pyag.moveTo(100,100)
                     time.sleep(1)
                 except:
+                    dragonspirit = False
                     pass
                 try:
                     dragonscale = pyag.locateCenterOnScreen('dragonscale.jpg',confidence=0.90)
@@ -242,6 +266,7 @@ def init_sell():
                     pyag.moveTo(100,100)
                     time.sleep(1)
                 except: 
+                    dragonscale = False
                     pass
                 try:
                     stim = pyag.locateCenterOnScreen('stim.jpg',confidence=0.90)
@@ -251,6 +276,7 @@ def init_sell():
                     pyag.moveTo(100,100)
                     time.sleep(1)
                 except:
+                    stim = False
                     pass
         except:
             pass
@@ -615,7 +641,7 @@ minidgn_counter = 0
 # buffs = pyag.screenshot('buffs.jpg',region=(800,49,20,20))
 # ds = pyag.screenshot('ds.jpg',region=(993,49,20,20))
 #init_loot()
-#init_sell()
+# init_sell()
 buff()
 time.sleep(1)
 high_counter_time = now

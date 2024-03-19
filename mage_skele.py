@@ -510,7 +510,7 @@ def check_unable_connect():
             time.sleep(2)
             password_loc = pyag.locateCenterOnScreen('password.jpg', confidence=0.8)
             pyag.click(password_loc)
-            sendSequence('')
+            sendSequence('PoPoP321!d')
             time.sleep(1)
             press('ENTER') #password
             time.sleep(20)
